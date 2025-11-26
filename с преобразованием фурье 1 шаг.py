@@ -147,7 +147,7 @@ def demonstrate_fft_with_acoustics(ir, fs, title="Импульсный откл�
     # Проверяем сходимость
     max_diff = np.max(np.abs(ir - recovered_ir))
     print(f"\nМаксимальная разница между исходным и восстановленным ИО: {max_diff:.10f}")
-    print("✅ FFT успешно выполнена, сигнал восстановлен с высокой точностью." if max_diff < 1e-10 else "❌ Ошибка в FFT!")
+    print("FFT успешно выполнена, сигнал восстановлен с высокой точностью." if max_diff < 1e-10 else "❌ Ошибка в FFT!")
     
     # Построение графиков
     fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, figsize=(14, 10))
@@ -323,5 +323,6 @@ t, ir = create_impulse_response(room_width, room_height, source, receiver, max_r
 
 # 3. Применяем FFT и проверяем сходимость
 demonstrate_fft_with_acoustics(ir, fs=8000, title="Импульсный отклик помещения")
+
 
 print("\n Все операции завершены. Моделирование акустики с FFT выполнено корректно.")
